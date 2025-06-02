@@ -1,0 +1,12 @@
+March 31, 2024
+Formula
+	FormulaValueConfig -> ValueConfig
+	VariableValueConfigs -> List of ValueConfig
+	
+	
+February 7, 2023	
+Units:
+	Build the unit bit by bit so that, if there is a compound unit (Force * weight / distance, for example), it can be accommodated.
+	If there is no conversion available (currency currently has no conversion) ignore it, and convert the rest of the compound unit.
+
+	

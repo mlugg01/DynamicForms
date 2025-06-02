@@ -1,0 +1,3 @@
+﻿Things to do:
+Create wrapper classes for SectionData and FormData
+Define class to hold list of SectionData, properties for rec ID, date changed, update user ID, etc.

@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="DynamicForms.Controls.DataGridEditControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DynamicForms.Controls"
+             xmlns:Converters="clr-namespace:DynamicForms.Converters"
+             mc:Ignorable="d" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Converters:SelectedIndexToBooleanConverter x:Key="SelectedIndexToBooleanConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border Style="{StaticResource SilverToolbarBorderStyle}">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,4">
+                <Button x:Name="btnNew" 
+                        Content="New" 
+                        Style="{StaticResource ToolbarTextButtonStyle}"
+                        Height="20"/>
+                <Button x:Name="btnDelete"
+                        Content="Delete" 
+                        Style="{StaticResource ToolbarTextButtonStyle}"
+                        Height="20"
+                        IsEnabled="{Binding SelectedIndex, ElementName=grdItems, Converter={StaticResource SelectedIndexToBooleanConverter}}"/>
+            </StackPanel>
+        </Border>
+        <DataGrid x:Name="grdItems" Grid.Row="1" MinHeight="150" DataGridCell.GotFocus="grdItems_GotFocus"/>
+    </Grid>
+</UserControl>
